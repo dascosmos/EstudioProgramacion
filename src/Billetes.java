@@ -6,20 +6,28 @@ public class Billetes {
     public void RecibirValor(double n){
         double valor = n;
         double suma=0;
-        int billetes1000 = 0;
-        int billetes100 = 0;
-        int billetes50 = 0;
-        int billetes20 = 0;
-        int billetes10 = 0;
-        int billetes5 = 0;
-        int billetes2 = 0;
-        int monedas1 = 0;
-        int miles = 0;
-        int centenas = 0;
-        int decenas = 0;
-        int unidades = 0;
-        double decimales = 0;
+        double [] valorBilletes = {100,50,20,10,5,2,1,0.50,0.25,0.10,0.05,0.01};
+        double [] valorCambio = {0,0,0,0,0,0,0,0,0,0,0,0};
 
+        for (int i = 0; i<valorBilletes.length;i++){
+            if (valor>valorBilletes[i]){
+                valorCambio[i]= Math.floor(valor/valorBilletes[i]);
+
+                valor=valor-(valorCambio[i]*valorBilletes[i]);
+            }
+        }
+
+        for(int i = 0; i<valorBilletes.length;i++){
+
+                if (valorBilletes[i]>1){
+                    System.out.println(valorCambio[i]+" Billetes de: "+valorBilletes[i]);
+                }else{
+                    System.out.println(valorCambio[i]+" Monedas de: "+valorBilletes[i]);
+                }
+
+        }
+
+/*
         if(n > 1000){
             miles = (int)(n/1000)*1000;
             centenas =(int)((n%1000)/100)*100;
@@ -39,16 +47,7 @@ public class Billetes {
             unidades = (int)n/1;
             decimales = n%1;
         }
-
-        if(miles!=0){
-            for (int i = 0; i<miles;i++){
-                if(billetes1000*1000 < miles){
-                    billetes1000 +=1;
-                }
-            }
-        }
-
-        System.out.println(miles+" "+centenas+" "+decenas+" "+unidades+" "+decimales);
+        */
 
     }
 }
