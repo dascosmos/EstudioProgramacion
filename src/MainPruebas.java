@@ -4,9 +4,9 @@
 public class MainPruebas {
 
     public static void main(String[] args){
-        Billetes cajero = new Billetes();
-        double numero = 91.01;
-        cajero.RecibirValor(numero);
+        LeftArea cajero = new LeftArea();
+        char a = 'M';
+        cajero.leftArea(a);
     }
 
 }
